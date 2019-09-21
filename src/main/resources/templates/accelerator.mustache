@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spring Security Example</title>
+    <style type="text/css">
+        input {
+            border: 1px solid #cccccc;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -khtml-border-radius: 3px;
+        background: #ffffff !important;
+        outline: none;
+        height: 324px;
+        width: 520px;
+        color: #cccccc;
+        font-size: 11px;
+        font-family: Tahoma;
+        }
+        textarea {
+
+            width: 100%;
+            height: 250px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome to accelerator!</h1>
+<div>
+    <form method="post">
+        <textarea rows="10" cols="25" name="text" placeholder="Введите данные"></textarea>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <button type="submit">Получить результат</button>
+    </form>
+</div>
+<a href="main">History</a>
+{{#texts}}
+<div>
+
+    <span>{{dataXe}}</span>
+</div>
+{{/texts}}
+</body>
+</html>

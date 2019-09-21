@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spring Security Example</title>
+    <style type="text/css">
+        body{
+            background: aquamarine;
+        }
+        button {
+            margin-left: 42%;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+        .azaz {
+            border: 7px solid #cccccc;
+            border-radius: 3px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            -khtml-border-radius: 3px;
+            background: #ffffff !important;
+            height: 324px;
+            width: 420px;
+            color: #cccccc;
+            font-size: 11px;
+            font-family: Tahoma;
+        }
+        textarea {
+            width: 70%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            height: 250px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            resize: none;
+        }
+        select{
+            float: left;
+            width: 160px;
+            height: 35px;
+            margin-left: 35px;
+            margin-top: -265px;
+            padding: 0 20px;
+            background: #ffffff;
+            border: 3px solid #00FA9A;
+            font-size: 15px;
+            font-family: Tahoma;
+        }
+        .polzun{
+            float: left;
+            margin-left: 35px;
+            margin-top: -205px;
+        }
+        table {
+            float: left; /* таблицы становятся плавающими элементами, смещенными по левому краю */
+            margin-right: 30px; /* устанавливаем внешние отступы справа */
+        }
+        td, th {
+            border: 1px solid #F50; /* задаем сплошную границу размером 1 пиксель цвета #F50 */
+            width: 75px; /* ширина ячеек */
+            height: 50px; /* высота ячеек */
+            background: wheat; /* задаем цвет заднего фона ячеек */
+        }
+        caption {
+            font-weight: bold; /* жирное начертание */
+        }
+        .first {
+            empty-cells: show; /* показывать пустые ячейки (по умолчанию) */
+        }
+        .second {
+            empty-cells: hide; /* скрывать пустые ячейки */
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body >
+<h1 align="center" style="color: green">Welcome to accelerator!</h1>
+<div>
+
+    <table class = "second">
+        <tr>
+            <th id="one">1</th><th></th><th>3</th>
+        </tr>
+        <tr class="RowClass">
+            <td></td><td><input type="checkbox"/></td><td>☺</td>
+        </tr>
+        <tr>
+            <td ><input type="radio" /></td>
+            <td>
+                3
+                <input type="radio" />
+            </td>
+            <td>☺</td><td></td>
+        </tr>
+    </table>
+
+
+    <form method="post">
+        <textarea rows="10" cols="25" name="text" placeholder="Введите новые данные"></textarea>
+        <input  class="azaz" align="center" type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <p><select name="element">
+
+                <option value="AR">Ar (argon)</option>
+                <option value="KR">Kr (krypton)</option>
+                <option value="XE">Xe (xenon)</option>
+            <optgroup label="Metals">
+                <option value="CO">Co (cobalt)</option>
+                <option value="CA">Ca (calcium)</option>
+                <option value="K">K (potassium)</option>
+                <option value="LI">Li (lithium)</option>
+                <option value="MG">Mg (magnesium)</option>
+            </optgroup>
+            <optgroup label="Others">
+                <option value="S">S (sulfur)</option>
+                <option value="CL">Cl (chlorine)</option>
+            </optgroup>
+        </select></p>
+        <p class="polzun"><input  type="range" min="0" max="10" onchange="document.getElementById('rangeValue').innerHTML = this.value;" ><span id="rangeValue">5</span>Å</p>
+        
+        <button type="submit">Получить результат</button>
+    </form>
+</div>
+{{#texts}}
+<div>
+
+    <span>{{texts}}</span>
+</div>
+{{/texts}}
+
+</body>
+</html>
